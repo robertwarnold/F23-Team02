@@ -1,0 +1,31 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Define the background gradient */
+body {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Create a subtle pattern overlay */
+.main-container {
+    background: url('pattern.png'); /* Replace 'pattern.png' with your pattern image */
+    opacity: 0.3; /* Adjust the opacity as needed */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Style your dashboard content */
+.dashboard {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

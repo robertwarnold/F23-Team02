@@ -1,0 +1,70 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex; /* Use flex to create a column layout */
+}
+
+.vertical-nav {
+    background-color: #333;
+    color: white;
+    width: 200px; /* Width of the vertical navigation bar */
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+.vertical-nav ul {
+    list-style: none;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.vertical-nav li {
+    margin-bottom: 10px;
+}
+
+.vertical-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block; /* Make each link a block element */
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.vertical-nav a:hover {
+    background-color: #1F78B4; /* Hover background color */
+}
+
+header {
+    background-color: #1F78B4;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    flex: 1; /* Expand to fill available space */
+}
+
+main {
+    flex: 3; /* Expand to fill available space */
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #1F78B4;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    flex: 1; /* Expand to fill available space */
+}
