@@ -31,6 +31,10 @@ include("database.php");
                     <td> Version Number: </td>
                     <td> <?php echo $ABOUT_PAGE_DATA['Version']; ?> </td>
                 </tr>
+                <tr>
+                    <td> Project Description: </td>
+                    <td> <?php echo $ABOUT_PAGE_DATA['ProjectDesc']; ?> </td>
+                </tr>
 
             </table>
 
