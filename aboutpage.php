@@ -33,7 +33,7 @@ include("database.php");
                 </tr>
                 <tr>
                     <td> Project Description: </td>
-                    <td> <?php echo $ABOUT_PAGE_DATA['ProjectDesc']; ?> </td>
+                    <td> <?php echo $ABOUT_PAGE_DATA['ProductDesc']; ?> </td>
                 </tr>
 
             </table>
