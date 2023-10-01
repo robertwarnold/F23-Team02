@@ -1,5 +1,4 @@
-<?php include("database.php");?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -24,26 +23,6 @@
                 </div>
             </div>
         </div>
-
-        <main>
-            <table>
-                <?php
-                    $ABOUT_PAGE_DATA = fetch_about_page();
-                ?>
-                <tr>
-                    <td> Project Name: </td>
-                    <td> <?php echo $ABOUT_PAGE_DATA['ProductName']; ?> </td>
-                </tr>
-                <tr>
-                    <td> Version Number: </td>
-                    <td> <?php echo $ABOUT_PAGE_DATA['Version']; ?> </td>
-                </tr>
-                <tr>
-                    <td> Project Description: </td>
-                    <td> <?php echo $ABOUT_PAGE_DATA['ProductDesc']; ?> </td>
-                </tr>
-            </table>
-        </main>
 
         <div id="footer">
             <footer>
