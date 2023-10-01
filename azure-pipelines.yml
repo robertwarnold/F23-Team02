@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.x'
+
+- script: |
+    dotnet build --configuration Release
+    dotnet publish --configuration Release --output ./publish
+  displayName: 'Build and Publish'
+
+- task: AWSCLI@1
+  inputs:
+    awsCommand: 's3'
+    command: 'sync'
+    arguments: './publish s3://cpsc4911team02generalbucket'
+  displayName: 'Sync to S3'
+
