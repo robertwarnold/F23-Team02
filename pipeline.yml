@@ -1,0 +1,92 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+jobs:
+- job: BuildAndDeploy
+  displayName: 'Build and Deploy to S3'
+  steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - script: |
+      dotnet build --configuration Release
+      dotnet publish --configuration Release --output ./publish
+    displayName: 'Build and Publish'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+
+  - task: PowerShell@2
+    displayName: 'Install AWS CLI'
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Install AWS CLI
+        Invoke-WebRequest -Uri https://awscli.amazonaws.com/AWSCLIV2.msi -OutFile AWSCLIV2.msi
+        Start-Process -Wait -FilePath msiexec.exe -ArgumentList "/i AWSCLIV2.msi /qn"
+        # Configure AWS CLI with service connection credentials
+        aws configure set aws_access_key_id $(AWS_ACCESS_KEY_ID)
+        aws configure set aws_secret_access_key $(AWS_SECRET_ACCESS_KEY)
+        aws configure set region $(AWS_REGION)
+  env:
+    AWS_ACCESS_KEY_ID: $(awsAccessKeyId)
+    AWS_SECRET_ACCESS_KEY: $(awsSecretAccessKey)
+    AWS_REGION: 'your-region'
+
+  - task: AWSCLI@1
+    displayName: 'Sync to S3'
+    inputs:
+      awsCommand: 's3'
+      command: 'sync'
+      arguments: './publish s3://your-s3-bucket/'
+    env:
+      AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+      AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+      AWS_REGION: 'your-region'
