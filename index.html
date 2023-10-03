@@ -23,5 +23,31 @@
 
     </main>
     <script src="script.js"></script>
+    <!-- Include the AWS SDK for JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.999.0/aws-sdk.min.js"></script>
+    <script>
+        AWS.config.region = 'us-east-1';  // e.g., us-east-1
+      
+        var poolData = {
+          UserPoolId: 'us-east-1_db0YqmgDq',
+          ClientId: 'your-app-client-id'
+        };
+      
+        var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+      </script>
+
+    <form id="signup-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="button" onclick="signup()">Sign Up</button>
+    </form>
+  
+      
+
 </body>
 </html>
