@@ -42,6 +42,10 @@
                     <td> Project Description: </td>
                     <td> <?php echo $ABOUT_PAGE_DATA['ProductDesc']; ?> </td>
                 </tr>
+                <tr>
+                    <td> Release Date: </td>
+                    <td> <?php echo $ABOUT_PAGE_DATA['ReleaseDate']; ?> </td>
+                </tr>
             </table>
         </main>
 
