@@ -4,29 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard Demo</title>
-    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="dashboard.css"> 
 </head>
 <body>
     <header>
-        <h1>Admin Dashboard Demos</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="admin_dashboard.html">Home</a></li>
-        </ul>
-    </nav>
+        <h1>Admin Dashboard</h1>
+
     <main>
+        <div id="banner">
+            <a href="index.html">
+                <img id="home" src="imgs/home-icon.png">
+            </a>
+
+            <div class="dropdown">
+                <img id="home" class="dropbtn" src="imgs/settings-icon.png">
+                <div class="dropdown-content">
+                    <a href="Admin_account.html">Profile</a>
+                    <a href="Admin_settings.html">Settings</a>
+                    <a href="logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
+
         <section class="dashboard">
-            <h2>Welcome, [Driver Name]</h2>
+            <h2>Welcome, [Admin Name]</h2>
             <div class="points">
                 <p>Total Points: [Total Points]</p> 
             </div>
             <div class="actions">
-                <button id="accountBtn">My Account</button>
-                <button id="catalogBtn">Admin's Catalog</button>
-                <button id="logoutBtn">Logout</button>
-                <button id="pointTrackingBtn">Point Tracking</button>
+                <button href="Admin_account.html">My Account</button>
+                <button href="Admin_catalog.html">Admin's Catalog</button>
+                <!-- <button href="logout.html">Logout</button> -->
+                <button href=:Admin_points.html">Point Tracking</button>
             </div>
             <div class="Admin">
                 <p>Current Admin: [Admin Name]</p>
@@ -48,10 +58,10 @@
     <footer>
         <p><a href="aboutpage.php">About</a></p>
         <div class="profile-dropdown">
-            <button id="profileDropdownBtn">Profile</button>
+            <!-- <button id="profileDropdownBtn">Profile</button> -->
             <div class="dropdown-content">
-                <a href="admin_settings.html">Settings</a>
-                <a href="admin_account.html">My Account</a>
+                <a href="Admin_settings.html">Settings</a>
+                <a href="Admin_account.html">My Account</a>
             </div>
         </div>
     </footer>

@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sponsor Dashboard Demo</title>
-    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="dashboard.css"> 
 </head>
 <body>
     <header>
-        <h1>Sponsor Dashboard Demos</h1>
-    </header>
+        <h1>Sponsor Dashboard</h1>
+
     <main>
+        <div id="banner">
+            <a href="index.html">
+                <img id="home" src="imgs/home-icon.png">
+            </a>
+
+            <div class="dropdown">
+                <img id="home" class="dropbtn" src="imgs/settings-icon.png">
+                <div class="dropdown-content">
+                    <a href="Sponsor_account.html">Profile</a>
+                    <a href="Sponsor_settings.html">Settings</a>
+                    <a href="logout.html">Logout</a>
+                </div>
+            </div>
+        </div>
+
         <section class="dashboard">
-            <h2>Welcome, [Driver Name]</h2>
+            <h2>Welcome, [Sponsor Name]</h2>
             <div class="points">
                 <p>Total Points: [Total Points]</p> 
             </div>
             <div class="actions">
-                <button><a href="sponsor_dashboard.html" style="text-decoration: none; color: inherit;">Home</a></button>
-                <button><a  href="sponsor_account.html" style="text-decoration: none; color: inherit;">My Account</a></button>
-                <button><a href=="sponsor_catalog.html" style="text-decoration: none; color: inherit;">Sponsor's Catalog</a></button>
-                <button><a  href="logout_page.html" style="text-decoration: none; color: inherit;"> Logout</a></button>
-                <button><a href="sponsor_point.html" style="text-decoration: none; color: inherit;" >Point Tracking</a></button>
+                <button href="Sponsor_account.html">My Account</button>
+                <button href="Sponsor_catalog.html">Sponsor's Catalog</button>
+                <!-- <button href="logout.html">Logout</button> -->
+                <button href=:Sponsor_points.html">Point Tracking</button>
             </div>
-            <div class="sponsor">
+            <div class="Sponsor">
                 <p>Current Sponsor: [Sponsor Name]</p>
             </div>
         </section>
@@ -44,10 +58,10 @@
     <footer>
         <p><a href="aboutpage.php">About</a></p>
         <div class="profile-dropdown">
-            <button id="profileDropdownBtn">Profile</button>
+            <!-- <button id="profileDropdownBtn">Profile</button> -->
             <div class="dropdown-content">
-                <a href="sponsor_settings.html">Settings</a>
-                <a href="sponsor_account.html">My Account</a>
+                <a href="Sponsor_settings.html">Settings</a>
+                <a href="Sponsor_account.html">My Account</a>
             </div>
         </div>
     </footer>

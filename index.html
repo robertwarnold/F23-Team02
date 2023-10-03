@@ -1,15 +1,28 @@
+<!-- login.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capstone Demo</title>
-    <link rel="stylesheet" href="layout.css">
+    <title>Login Page</title>
+    <!-- Include AWS Amplify library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-amplify/4.3.5/amplify.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Login Page Goes Here</h1>
-    </header>
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
     <nav>
         <ul>
             // this will point to the dashboards after a user logs in
@@ -19,35 +32,38 @@
             <li><a href="driver_dashboard.html">Driver Dashboard</a></li> 
         </ul>
     </nav>
-    <main>
 
-    </main>
-    <script src="script.js"></script>
-    <!-- Include the AWS SDK for JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.999.0/aws-sdk.min.js"></script>
     <script>
-        AWS.config.region = 'us-east-1';  // e.g., us-east-1
-      
-        var poolData = {
-          UserPoolId: 'us-east-1_db0YqmgDq',
-          ClientId: 'your-app-client-id'
-        };
-      
-        var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-      </script>
+        // Configure AWS Amplify
+        Amplify.configure({
+            Auth: {
+                // Specify your Cognito User Pool configuration
+                region: 'us-east-1',
+                userPoolId: 'your-user-pool-id',
+                userPoolWebClientId: 'your-app-client-id',
+            }
+        });
 
-    <form id="signup-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="button" onclick="signup()">Sign Up</button>
-    </form>
-  
-      
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get username and password from the form
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Sign in using Cognito
+            Amplify.Auth.signIn(username, password)
+                .then(user => {
+                    console.log('Successfully logged in:', user);
+                    // Redirect or perform other actions upon successful login
+                })
+                .catch(error => {
+                    console.error('Error during login:', error);
+                    // Handle login error
+                });
+        });
+    </script>
 
 </body>
 </html>
