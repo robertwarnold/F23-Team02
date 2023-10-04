@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us</title>
-        <link rel="stylesheet" href="aboutPage.css">
+        <link rel="stylesheet" href="../styles/aboutPage.css">
     </head>
     <body>
         <div id="banner">
@@ -18,8 +18,8 @@
             <div class="dropdown">
                 <img id="home" class="dropbtn" src="imgs/settings-icon.png">
                 <div class="dropdown-content">
-                    <a href="driver_account.html">Profile</a>
-                    <a href="driver_settings.html">Settings</a>
+                    <a href="./driver/driver_account.html">Profile</a>
+                    <a href="./driver/driver_settings.html">Settings</a>
                     <a href="#">Logout</a>
                 </div>
             </div>
