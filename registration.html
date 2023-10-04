@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="./styles/styles.css">
 
     <title>User Registration</title>
@@ -28,9 +29,12 @@
             <option value="sponsor">Sponsor</option>
         </select><br>
 
-        <button type="submit">Register</button>
+        <button type="button" onclick="registerUser()">Register</button>
     </form>
-    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.1111.0/aws-sdk.min.js"></script> <!-- Include AWS SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-cognito-sdk/3.1.7/aws-cognito-sdk.min.js"></script> <!-- Include Cognito SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script> <!-- Include CryptoJS -->
 
     <script src="registration.js"></script>
 </body>
