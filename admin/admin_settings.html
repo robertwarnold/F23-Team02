@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Account Settings</title>
+    <link rel="stylesheet" href="../styles/account.css">
+</head>
+<body>
+    
+    <nav class="vertical-nav">
+        <ul>
+            <li><a href="admin_dashboard.html">Dashboard</a></li>
+            <li><a href="admin_products.html">Products</a></li>
+            <li><a href="admin_settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome, Admin</h1>
+    </header>
+    <main>
+        <!-- Page Title and Desc -->
+        <section>
+            <h2>Settings</h2>
+            <p> Change your profile settings here.</p>
+        </section>
+        <br>
+
+        <!-- Settings Sections -->
+        <form >
+            <section>
+                <h2>Personal Information</h2>
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name = "fname"> <br>
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name = "lname"> <br>
+                <label for="email">Email</label>
+                <input type="text" id="email" name = "email">
+            </section>
+            <br>
+            <section>
+                <h2>Account Settings</h2>
+                <div>Notifications</div>
+                <div>Two-Factor Authentication</div>
+    
+            </section>
+            
+            <br>
+            <input type="submit" value = "Save" >
+        </form>
+       
+
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
+</html>
