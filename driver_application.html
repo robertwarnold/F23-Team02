@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="driver_application.css"> 
+    <title>Driver Application Page</title>
+  </head>
+
+  <body>
+    <div id="banner">
+      <a href="index.html">
+          <img id="home" src="imgs/home-icon.png">
+      </a>
+
+      <h1 id="header">Pending Driver Applications</h1>
+
+      <div class="dropdown">
+          <img id="home" class="dropbtn" src="imgs/settings-icon.png">
+          <div class="dropdown-content">
+              <a href="driver_account.html">Profile</a>
+              <a href="driver_settings.html">Settings</a>
+              <a href="#">Logout</a>
+          </div>
+      </div>
+  </div>
+
+  <div id="toolBar">
+    <input type="input" id="searchBar" placeholder="Search by name or username..">
+
+    <p id="toolbarText">Sort</p>
+    <select id="sort">
+      <option value="sortBy"> </option>
+      <option value="A-Z">A-Z</option>
+      <option value="Z-A">Z-A</option>
+      <option value="earliest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+    </select>
+
+    <button id="searchBtn">Search</button>
+  </div>
+
+  <div id="driverTable">
+    <div id="driverTableLabels">
+      <p id="driverTableLabels">Status</p>
+      <p id="driverTableLabels" style="margin-left: 5%;">Name</p>
+      <p id="driverTableLabels" style="margin-left: 80%;">Action</p>
+    </div>
+    <hr>
+
+    <div id="application">
+      <div id="appStatus">Pending</div>
+      <div id="driverName">Name</div>
+      <div id="actionBtns">
+        <button>Approve</button>
+        <button>Deny</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <footer>
+        <a id="aboutUs" href="aboutPage.html">About Us</a>
+    </footer>
+  </div>
+    
+  </body>
+</html>
