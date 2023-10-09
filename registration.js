@@ -30,3 +30,4 @@ function registerUser() {
         console.log('user registered as', cognitoUser.getUsername());
     });
 }
+
