@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us</title>
-        <link rel="stylesheet" href="../styles/aboutPage.css">
+        <link rel="stylesheet" href="./styles/aboutPage.css">
     </head>
     <body>
         <div id="banner">
@@ -33,6 +33,10 @@
                 <tr>
                     <td> Project Name: </td>
                     <td> <?php echo $ABOUT_PAGE_DATA['ProductName']; ?> </td>
+                </tr>
+                <tr>
+                    <td> Team Number: </td>
+                    <td> <?php echo $ABOUT_PAGE_DATA['TeamNum']; ?> </td>
                 </tr>
                 <tr>
                     <td> Version Number: </td>

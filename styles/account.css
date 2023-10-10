@@ -62,9 +62,9 @@ section {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-input[type=submit] {    
+button {    
     padding: 10px;
-    border:0 none;
+    border: 0;
     border-radius: 5px;
     background-color: #fff;
     width: 75px;
