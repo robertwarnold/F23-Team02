@@ -26,16 +26,200 @@
                 <h2>Settings</h2>
             </section>
 
-            <section>
+            <section id="username">
                 <h3>Username</h3>
+                    <section>Current Username: username1</section>
+
+
+                    <section id="mysection">
+                        <h4>Change Username</h4>
+    
+                        Enter New Username: <input type="input" id="newUsername"> <br />
+                        Re-enter New Username:  <input type="input" id="newUsername2"> <br />
+    
+                        <button id="changeUsername">Change</button>
+                    </section>
+
+                    <button onclick="toggle(this)">Hide Section</button>
+
+                    <script>
+                        let toggle = button => {
+                        let element = document.getElementById("mysection");
+                        let hidden = element.getAttribute("hidden");
+
+                            if (hidden) {
+                            element.removeAttribute("hidden");
+                            button.innerText = "Hide Section";
+                            } else {
+                            element.setAttribute("hidden", "hidden");
+                            button.innerText = "Change Username";
+                            }
+                        }
+                    </script>
+            </section> 
+            
+
+
+            <section id="password">
                 <h3>Password</h3>
-                <h3>First Name</h3>
-                <h3>Last Name</h3>
-                <h3>Time Zone</h3>
-                <h3>Display Language</h3>
-                <h3>Email Address</h3>
-                <h3>Phone Number</h3>
+
+                    <section id="mysection2">
+                        <h4>Change Password</h4>
+    
+                        Enter New Password: <input type="input" id="newPassword"> <br />
+                        Re-enter New Password:  <input type="input" id="newPassword2"> <br />
+    
+                        <button id="changePassword">Change</button>
+                    </section>
+
+                    <button onclick="toggle2(this)">Hide Section</button>
+
+                    <script>
+                        let toggle2 = button => {
+                        let element = document.getElementById("mysection2");
+                        let hidden = element.getAttribute("hidden");
+
+                            if (hidden) {
+                            element.removeAttribute("hidden");
+                            button.innerText = "Hide Section";
+                            } else {
+                            element.setAttribute("hidden", "hidden");
+                            button.innerText = "Change Password";
+                            }
+                        }
+                    </script>
             </section>
+
+
+
+
+            <section id="firstName">
+                <h3>First Name</h3>
+                <section>Current First Name: Firstname</section>
+
+                    <section id="mysection3">
+                        <h4>Change First Name</h4>
+    
+                        Change First Name: <input type="input" id="newFirstName"> <br />
+    
+                        <button id="changeFirstName">Change</button>
+                    </section>
+
+                    <button onclick="toggle3(this)">Hide Section</button>
+
+                    <script>
+                        let toggle3 = button => {
+                        let element = document.getElementById("mysection3");
+                        let hidden = element.getAttribute("hidden");
+
+                            if (hidden) {
+                            element.removeAttribute("hidden");
+                            button.innerText = "Hide Section";
+                            } else {
+                            element.setAttribute("hidden", "hidden");
+                            button.innerText = "Change First Name";
+                            }
+                        }
+                    </script>   
+            </section>
+            
+
+
+            <section id="lastName">
+                <h3>Last Name</h3>
+                <section>Current Last Name: Lastname</section>
+
+                    <section id="mysection4">
+                        <h4>Change Last Name</h4>
+    
+                        Change Last Name: <input type="input" id="newLastName"> <br />
+    
+                        <button id="changeLastName">Change</button>
+                    </section>
+
+                    <button onclick="toggle4(this)">Hide Section</button>
+
+                    <script>
+                        let toggle4 = button => {
+                        let element = document.getElementById("mysection4");
+                        let hidden = element.getAttribute("hidden");
+
+                            if (hidden) {
+                            element.removeAttribute("hidden");
+                            button.innerText = "Hide Section";
+                            } else {
+                            element.setAttribute("hidden", "hidden");
+                            button.innerText = "Change Last Name";
+                            }
+                        }
+                    </script>   
+            </section>
+
+
+
+            <section id="email">
+                <h3>Email</h3>
+                <section>Current Email: email@email.com</section>
+
+                    <section id="mysection5">
+                        <h4>Change Email</h4>
+    
+                        Enter New Email: <input type="input" id="newEmail" placeholder="email@address.com"> <br />
+                        Re-enter New Email:  <input type="input" id="newEmail2" placeholder="email@address.com"> <br />
+
+                        <button id="changeEmail">Change</button>
+                    </section>
+
+                    <button onclick="toggle5(this)">Hide Section</button>
+
+                    <script>
+                        let toggle5 = button => {
+                        let element = document.getElementById("mysection5");
+                        let hidden = element.getAttribute("hidden");
+
+                            if (hidden) {
+                            element.removeAttribute("hidden");
+                            button.innerText = "Hide Section";
+                            } else {
+                            element.setAttribute("hidden", "hidden");
+                            button.innerText = "Change Email";
+                            }
+                        }
+                    </script>   
+            </section>
+
+
+
+            <section id="phone">
+                <h3>Phone Number</h3>
+                <section>Current Phone Number: (123)-456-7890</section>
+
+                    <section id="mysection6">
+                        <h4>Change Phone Number</h4>
+    
+                        Enter New Phone Number: <input type="input" id="newPhone" placeholder="(xxx)-xxx-xxxx"> <br />
+
+                        <button id="changePhone">Change</button>
+                    </section>
+
+                    <button onclick="toggle6(this)">Hide Section</button>
+
+                    <script>
+                        let toggle6 = button => {
+                        let element = document.getElementById("mysection6");
+                        let hidden = element.getAttribute("hidden");
+
+                            if (hidden) {
+                            element.removeAttribute("hidden");
+                            button.innerText = "Hide Section";
+                            } else {
+                            element.setAttribute("hidden", "hidden");
+                            button.innerText = "Change Phone Number";
+                            }
+                        }
+                    </script>   
+            </section>
+
         </main>
 
         <footer>
