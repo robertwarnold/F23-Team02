@@ -1,229 +1,133 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
-        <title>Sponsor Account</title>
-        <link rel = "stylesheet" href = "../styles/account.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Account Settings</title>
+    <link rel="stylesheet" href="../styles/account.css">
+</head>
+<body>
+    
+    <nav class="vertical-nav">
+        <ul>
+            <li><a href="sponsor_dashboard.html">Dashboard</a></li>
+            <li><a href="sponsor_catalog.html">Catalog</a></li>
+            <li><a href="sponsor_settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome, Sponsor</h1>
+    </header>
+    <main>
+        <!-- Page Title and Desc -->
+        <section>
+            <h2>Settings</h2>
+            <p> Change your profile settings here.</p>
+        </section>
+        <br>
 
-    <body>
-        <nav class = "vertical-nav">
-            <ul>
-                <li><a href = "sponsor_dashboard.html">Dashboard</a></li>
-                <li><a href = "sponsor_catalog.html">Catalog</a></li>
-                <li><a href = "sponsor_settings.html">Settings</a></li>
-            </ul>
-        </nav>
-
-        <header>
-            <h1>Welcome, Sponsor!</h1>
-        </header>
-
-        <main>
-            <! -- Sponsor content goes here -- >
+        <!-- Settings Sections -->
+        <form >
             <section>
-                <h2>Settings</h2>
-            </section>
+                <h2>Personal Info</h2>
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name = "fname"> <br>
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name = "lname"> <br>
+                <label for="username">Username</label>
+                <input type="text" id="username" name = "username"> <br>
+                <label for="password">Password</label>
+                <input type="password" id="password" name = "password"> <br>
 
-            <section id="username">
-                <h3>Username</h3>
-                    <section>Current Username: username1</section>
+            </section><br>
+
+            <section>
+                <h2>Contact Info</h2>
+                <label for="email">Email</label>
+                <input type="text" id="email" name = "email" pattern="email" placeholder="example@email.com"><br>
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name = "phone" pattern="tel" placeholder="XXX-XXX-XXXXX"><br>
+                <h3>Address</h3>
+                <label for="address1">Address Line 1</label>
+                <input type="text" id="address1" name = "address1" placeholder="123 Example St">
+                <label for="address2">Address Line 2</label>
+                <input type="text" id="address2" name = "address2" placeholder="Apt, Suite, etc."><br>
+                <label for="zip">Zipcode</label>
+                <input type="text" id="zip" name = "zip" placeholder="12345">
+                <label for="state">State</label>
+                <select id="state" name = "state">
+                    <option value = "" disable selected> Select your state</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
 
 
-                    <section id="mysection">
-                        <h4>Change Username</h4>
-    
-                        Enter New Username: <input type="input" id="newUsername"> <br />
-                        Re-enter New Username:  <input type="input" id="newUsername2"> <br />
-    
-                        <button id="changeUsername">Change</button>
-                    </section>
-
-                    <button onclick="toggle(this)">Hide Section</button>
-
-                    <script>
-                        let toggle = button => {
-                        let element = document.getElementById("mysection");
-                        let hidden = element.getAttribute("hidden");
-
-                            if (hidden) {
-                            element.removeAttribute("hidden");
-                            button.innerText = "Hide Section";
-                            } else {
-                            element.setAttribute("hidden", "hidden");
-                            button.innerText = "Change Username";
-                            }
-                        }
-                    </script>
-            </section> 
+            </section><br>
             
+            <section>
+                <h2>Account Preferences</h2>
+                <label for="notif">Notifications</label>
+                <input type="checkbox" id="notif" name="notif"><br>
+                <label for="mfa">Multi Factor Authentication</label>
+                <input type="checkbox" id="mfa" name="mfa"><br>
+            </section><br>
 
+            <button type="button">Save</button>
+        </form>
+       
 
-            <section id="password">
-                <h3>Password</h3>
-
-                    <section id="mysection2">
-                        <h4>Change Password</h4>
-    
-                        Enter New Password: <input type="input" id="newPassword"> <br />
-                        Re-enter New Password:  <input type="input" id="newPassword2"> <br />
-    
-                        <button id="changePassword">Change</button>
-                    </section>
-
-                    <button onclick="toggle2(this)">Hide Section</button>
-
-                    <script>
-                        let toggle2 = button => {
-                        let element = document.getElementById("mysection2");
-                        let hidden = element.getAttribute("hidden");
-
-                            if (hidden) {
-                            element.removeAttribute("hidden");
-                            button.innerText = "Hide Section";
-                            } else {
-                            element.setAttribute("hidden", "hidden");
-                            button.innerText = "Change Password";
-                            }
-                        }
-                    </script>
-            </section>
-
-
-
-
-            <section id="firstName">
-                <h3>First Name</h3>
-                <section>Current First Name: Firstname</section>
-
-                    <section id="mysection3">
-                        <h4>Change First Name</h4>
-    
-                        Change First Name: <input type="input" id="newFirstName"> <br />
-    
-                        <button id="changeFirstName">Change</button>
-                    </section>
-
-                    <button onclick="toggle3(this)">Hide Section</button>
-
-                    <script>
-                        let toggle3 = button => {
-                        let element = document.getElementById("mysection3");
-                        let hidden = element.getAttribute("hidden");
-
-                            if (hidden) {
-                            element.removeAttribute("hidden");
-                            button.innerText = "Hide Section";
-                            } else {
-                            element.setAttribute("hidden", "hidden");
-                            button.innerText = "Change First Name";
-                            }
-                        }
-                    </script>   
-            </section>
-            
-
-
-            <section id="lastName">
-                <h3>Last Name</h3>
-                <section>Current Last Name: Lastname</section>
-
-                    <section id="mysection4">
-                        <h4>Change Last Name</h4>
-    
-                        Change Last Name: <input type="input" id="newLastName"> <br />
-    
-                        <button id="changeLastName">Change</button>
-                    </section>
-
-                    <button onclick="toggle4(this)">Hide Section</button>
-
-                    <script>
-                        let toggle4 = button => {
-                        let element = document.getElementById("mysection4");
-                        let hidden = element.getAttribute("hidden");
-
-                            if (hidden) {
-                            element.removeAttribute("hidden");
-                            button.innerText = "Hide Section";
-                            } else {
-                            element.setAttribute("hidden", "hidden");
-                            button.innerText = "Change Last Name";
-                            }
-                        }
-                    </script>   
-            </section>
-
-
-
-            <section id="email">
-                <h3>Email</h3>
-                <section>Current Email: email@email.com</section>
-
-                    <section id="mysection5">
-                        <h4>Change Email</h4>
-    
-                        Enter New Email: <input type="input" id="newEmail" placeholder="email@address.com"> <br />
-                        Re-enter New Email:  <input type="input" id="newEmail2" placeholder="email@address.com"> <br />
-
-                        <button id="changeEmail">Change</button>
-                    </section>
-
-                    <button onclick="toggle5(this)">Hide Section</button>
-
-                    <script>
-                        let toggle5 = button => {
-                        let element = document.getElementById("mysection5");
-                        let hidden = element.getAttribute("hidden");
-
-                            if (hidden) {
-                            element.removeAttribute("hidden");
-                            button.innerText = "Hide Section";
-                            } else {
-                            element.setAttribute("hidden", "hidden");
-                            button.innerText = "Change Email";
-                            }
-                        }
-                    </script>   
-            </section>
-
-
-
-            <section id="phone">
-                <h3>Phone Number</h3>
-                <section>Current Phone Number: (123)-456-7890</section>
-
-                    <section id="mysection6">
-                        <h4>Change Phone Number</h4>
-    
-                        Enter New Phone Number: <input type="input" id="newPhone" placeholder="(xxx)-xxx-xxxx"> <br />
-
-                        <button id="changePhone">Change</button>
-                    </section>
-
-                    <button onclick="toggle6(this)">Hide Section</button>
-
-                    <script>
-                        let toggle6 = button => {
-                        let element = document.getElementById("mysection6");
-                        let hidden = element.getAttribute("hidden");
-
-                            if (hidden) {
-                            element.removeAttribute("hidden");
-                            button.innerText = "Hide Section";
-                            } else {
-                            element.setAttribute("hidden", "hidden");
-                            button.innerText = "Change Phone Number";
-                            }
-                        }
-                    </script>   
-            </section>
-
-        </main>
-
-        <footer>
-            <p>&copy; 2023 BAATH</p>
-        </footer>
-    </body>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
 </html>
