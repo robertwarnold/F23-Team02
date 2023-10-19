@@ -1,33 +1,175 @@
-// registration.js
-function registerUser() {
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const role = document.getElementById('role').value;
+import React, { Component } from 'react';
+import FormErrors from "../FormErrors";
+import Validate from "../utility/FormValidation";
 
-    const poolData = {
-        UserPoolId: 'us-east-1_db0YqmgDq',
-        ClientId: '6e4rn9da6dl0uir1s0o9judpnd'
-    };
+class Register extends Component {
+  state = {
+    username: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+    errors: {
+      cognito: null,
+      blankfield: false,
+      passwordmatch: false
+    }
+  }
 
-    const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-
-    const attributeList = [
-        new AmazonCognitoIdentity.CognitoUserAttribute({ Name: 'given_name', Value: firstName }),
-        new AmazonCognitoIdentity.CognitoUserAttribute({ Name: 'family_name', Value: lastName }),
-        new AmazonCognitoIdentity.CognitoUserAttribute({ Name: 'email', Value: email }),
-        new AmazonCognitoIdentity.CognitoUserAttribute({ Name: 'phone_number', Value: phone }),
-        new AmazonCognitoIdentity.CognitoUserAttribute({ Name: 'custom:role', Value: role }),
-    ];
-
-    userPool.signUp(email, 'password', attributeList, null, function (err, result) {
-        if (err) {
-            alert(err.message || JSON.stringify(err));
-            return;
-        }
-        const cognitoUser = result.user;
-        console.log('user registered as', cognitoUser.getUsername());
+  clearErrorState = () => {
+    this.setState({
+      errors: {
+        cognito: null,
+        blankfield: false,
+        passwordmatch: false
+      }
     });
+  }
+
+  handleSubmit = async event => {
+    event.preventDefault();
+
+    // Form validation
+    this.clearErrorState();
+    const error = Validate(event, this.state);
+    if (error) {
+      this.setState({
+        errors: { ...this.state.errors, ...error }
+      });
+    }
+
+    // AWS Cognito integration here
+    const { username, email, password } = this.state;
+    try {
+        const responseSignUp = await Auth.signUp({
+            username,
+            password,
+            attributes: {
+                email: email
+            }
+        });
+        console.log(responseSignUp);
+        this.props.history.push("/welcome");
+    }catch(error){
+        let err = null;
+        !error.message ? err = { "message": error } : err = error;
+        this.setState({
+            errors: {
+                ...this.state.errors,
+                cognito: error
+            }
+        })
+    }
+  };
+
+  onInputChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+    document.getElementById(event.target.id).classList.remove("is-danger");
+  }
+
+  render() {
+    return (
+      <section className="section auth">
+        <div className="container">
+          <h1>Register</h1>
+          <FormErrors formerrors={this.state.errors} />
+
+          <form onSubmit={this.handleSubmit}>
+            <div className="field">
+              <p className="control">
+                <input 
+                  className="input" 
+                  type="text"
+                  id="username"
+                  aria-describedby="userNameHelp"
+                  placeholder="Enter username"
+                  value={this.state.username}
+                  onChange={this.onInputChange}
+                />
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left has-icons-right">
+                <input 
+                  className="input" 
+                  type="email"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  value={this.state.email}
+                  onChange={this.onInputChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input 
+                  className="input" 
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.onInputChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input 
+                  className="input" 
+                  type="password"
+                  id="confirmpassword"
+                  placeholder="Confirm password"
+                  value={this.state.confirmpassword}
+                  onChange={this.onInputChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control">
+                <a href="/forgotpassword">Forgot password?</a>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control">
+                <button className="button is-success">
+                  Register
+                </button>
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+    );
+  }
 }
+
+const apiUrl = 'https://mtyvmva5oqlpmxivx6oqsjiubq0gyxre.lambda-url.us-east-1.on.aws/';
+
+fetch(apiUrl, {
+    method: 'GET',
+    headers: {
+        'Authorization': 'Bearer yourAccessToken', // Include the user's access token
+        'Content-Type': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(data => {
+        // Update your HTML page to display the list of users
+        console.log(data); // Handle the user data as needed
+    })
+    .catch(error => console.error('Error:', error));
+
+
+export default Register;
 

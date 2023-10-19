@@ -38,5 +38,31 @@
 
     <script src="registration.js"></script>
     <script src="register_db.js"></script>
+    <script>
+        var authenticationData = {
+    Username: 'username',
+    Password: 'password',
+    // Other custom attributes for your application
+};
+
+var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+
+var userData = {
+    Username: 'username',
+    Pool: userPool
+};
+
+var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+cognitoUser.signUp(authenticationDetails, [], null, function (err, result) {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log('Registration successful. Admin approval required.');
+        // Redirect or show a message indicating that admin approval is pending
+    }
+});
+
+    </script>
 </body>
 </html>
