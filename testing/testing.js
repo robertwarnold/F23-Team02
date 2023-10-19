@@ -8,4 +8,5 @@ function lambdaTest(){
         document.getElementById("test").innerHTML = data.message;
     })
     .catch(error => console.log(error));
+    console.log(document.cookie);
 }
