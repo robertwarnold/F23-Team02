@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script src="../js/components.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +12,7 @@
     <nav class="vertical-nav">
         <ul>
             <li><a href="Sponsor_dashboard.html">Dashboard</a></li>
-            <li><a href="Sponsor_products.html">Products</a></li>
+            <li><a href="Sponsor_catalog.html">Catalog</a></li>
             <li><a href="Sponsor_settings.html">Settings</a></li>
         </ul>
     </nav>
@@ -20,12 +22,25 @@
     <main>
         <!-- Sponsor content goes here -->
         <section>
-            <h2>Dashboard</h2>
+            <h2>Catalog</h2>
             <p>Welcome to the Sponsor catalog page.</p>
+        </section> <br>
+        <section>
+            <form id="search">
+                <input type="search" id="catalog-search" name="catalog-search" placeholder="Search...">
+                <button>Search</button>
+            </form><button display="inline-block">Edit Catalog</button>
         </section>
+        <br>
+        <section>
+            <h2>Products</h2>
+            <catalog-item></catalog-item>
+        </section>
+
     </main>
     <footer>
         <p>&copy; 2023 Your Company</p>
+        <p><a href="../aboutPage.html">About Us</p>
     </footer>
 </body>
 </html>
