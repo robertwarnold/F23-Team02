@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  height: 700px;
+  height: fit-content;
   width: 25vw;
 
   margin-left: auto;
@@ -67,6 +67,7 @@ body {
 
   background-color: #63bdfa;
   color: #fff;
+  font-size: 12pt;
 }
 
 #buttons button:hover {
@@ -85,4 +86,24 @@ h3 {
 
 h3:visted {
   color:rgb(59, 59, 59)
+}
+
+#haveAccount {
+  padding-bottom: 20px;
+}
+
+#passwordError {
+  margin-left: 50px;
+  margin-right: auto;
+  margin-bottom: -20px;
+  width: 73%;
+
+  color: red;
+  background-color:rgb(255, 232, 228); 
+
+  border-style: solid;
+  border-radius: 5px;
+  border-color: red;
+
+  text-align: center;
 }

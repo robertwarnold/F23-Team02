@@ -27,25 +27,45 @@
             <input name="phone" id="phone">
             <br>
             <p>Create Password:</p>
-            <input name="password" id="password">
+            <input name="password" type="password" id="password">
             <br>
             <p>Confirm Password:</p>
-            <input name="cPassword" id="cPassword">
+            <input name="cPassword" type="password" id="cPassword">
             <br>
         </div>
 
         <br><br>
 
         <div id="buttons">
-            <button action="signUpConfig.php" name="submit">Sign Up</button>
+            <button onclick="passwordCheck()" name="submit">Sign Up</button>
         </div>
+
+        <div id="warnings"></div>
 
         <br><hr>
 
-        <h3>Already have an account? <a href="signIn.html">Sign In Here</a></h3>
+        <h3 id="haveAccount">Already have an account? <a href="signIn.html">Sign In Here</a></h3>
         
+        <script>
+            function passwordCheck() {
+                passwordOriginal = document.getElementById("password").value;
+                passwordDupe = document.getElementById("cPassword").value;
 
-        <!--<p><a href="https://team02.auth.us-east-1.amazoncognito.com/login?client_id=6e4rn9da6dl0uir1s0o9judpnd&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fcpsc4911team02generalbucket.s3.amazonaws.com%2Findex.html">Log In</a></p>
+                document.getElementById("warnings").innerHTML = "";
+
+                if (passwordOriginal !== passwordDupe) {
+                    document.getElementById("warnings").innerHTML += "<p id='passwordError'>Passwords do not match.</p><br>";
+                }
+
+                if (passwordOriginal.length < 8) {
+                    document.getElementById("warnings").innerHTML += "<p id='passwordError'>The password is less than 8 characters long.</p>";
+                }
+
+                else {
+                    //lambda function
+                }
+            }
+        </script>
         
     </div>
     
