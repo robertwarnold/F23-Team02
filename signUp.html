@@ -40,7 +40,7 @@
         <br><br>
 
         <div id="buttons">
-            <button onclick="passwordCheck()" name="submit">Sign Up</button>
+            <button id="signUp" name="submit">Sign Up</button>
         </div>
 
         <div id="warnings"></div>
@@ -49,6 +49,7 @@
 
         <h3 id="haveAccount">Already have an account? <a href="signIn.html">Sign In Here</a></h3>
         
+        <script src="Lambda Functions/Register.js"></script>
         <script>
             function passwordCheck() {
                 passwordOriginal = document.getElementById("password").value;
