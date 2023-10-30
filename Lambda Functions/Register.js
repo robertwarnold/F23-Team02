@@ -9,17 +9,42 @@ const mysql = require('node_modules/mysql');
  * if invalid: return event type and status failure
 **/
 function eventSignIn(event, connection){
-  const username = event.username;
-  const password = event.password;
-  
-  var responseType;
-  var status;
-  //if success
-  //return token appropriate info
-  //if fail
-  //
-  
+  var responseType, reason, status;
+  const registerPromise = new Promise((resolve, reject) => {
+    connection.connect(function(err){
+      if(err){
+        console.log(err);
+      }
+      else {
+        console.log("Successfully connected");
+
+        const username = event.username;
+        const password = event.password;
+
+        const selectQuery = "SELECT Username, Password FROM AccountInfo where Username='"+username+"' AND Password='"+password+"'";
+        connection.query(selectQuery, function(err, result, fields){
+          if(err) {
+            console.log(err);
+            responseType = "failure";
+            status = "Login authentication failed";
+          }
+          
+          if (result.length === 1){
+            responseType = "Success";
+            status = "Login authentication successful";
+          }
+
+          console.log(responseType);
+          console.log(status);
+          resolve({ responseType, status }); // Resolve the promise with responseType and status
+          connection.end(); // Move this inside the query callback to ensure it's called after the query is complete
+        });
+      }
+    });
+  });
+  return registerPromise;
 }
+
 
 /**
  * takes sign up information
@@ -28,39 +53,58 @@ function eventSignIn(event, connection){
  * if invalid, return event type, status failure, and reason
  */
 async function eventRegister (event, connection) {
+  var responseType, reason, status
   const registerPromise = new Promise((resolve, reject) => {
-  console.log("here");
-  //console.log(connection);
-  connection.connect(function(err){
-    if(err){
-     console.log(err);
-    }
-    console.log("successfully connected");
-  const username = event.username;
-  const firstname = event.firstname;
-  const lastname = event.lastname;
-  const email = event.email;
-  const phonenum = event.phonenum;
-  const password = event.password;
-  const querystatement = "SELECT Email,Username FROM AccountInfo where Email='"+email+"' OR Username='"+username+"'";
-  connection.query(querystatement, function(err, result, fields){
-    if(err){
-      console.log(err);
-    }
-    console.log(result);
-  });
-  
-  var responseType;
-  var status;
-  console.log
-  resolve("resolvle");
-  //if success
-    //Add to database
-  //if fail
-    //Dont add, give reason
+    //console.log(connection);
+    connection.connect(function(err){
+      if(err){
+       console.log(err);
+      }
+      console.log("successfully connected");
+      const username = event.username;
+      const firstname = event.firstname;
+      const lastname = event.lastname;
+      const email = event.email;
+      const address = event.address;
+      const phonenum = event.phonenum;
+      const password = event.password;
+      const querystatement = "SELECT Email,Username FROM AccountInfo where Email='"+email+"' OR Username='"+username+"'";
+      connection.query(querystatement, function(err, result, fields){
+        if(err){
+          console.log(err);
+        }
+        else {
+          if (result.length === 0) {
+            responseType = "success"
+            status = "Registration suceess";
+            reason = "Valid username & password";
+          }
+          else {
+            responseType = "failure";
+            status = "Registration failed";
+            reason = "Username or email is already in use";
+          }
+        }
+        resolve({ responseType, status, reason });
+        console.log(status);
+        console.log(reason);
+      });
+      
+      const insertQuery = "INSERT into AccountInfo(Email, FirstName, LastName, Phone, Address, Username, Password) VALUE ('"+email+"','"+firstname+"','"+lastname+"','"+phonenum+"','"+address+"', '"+username+"','"+password+"')";
+      connection.query(insertQuery, function(err, result, fields){
+        if(err) {
+          console.log(err);
+          responseType = "failure";
+          status = "Registration failed";
+        }
+        else {
+          responseType = "Success"
+          status = "Registration successful";
+        }
+      });
     connection.end();
-  });
-}
+    });
+  }
 )
 return registerPromise;
 }
@@ -71,10 +115,10 @@ return registerPromise;
  * if no valid, return event type, status failure, and reason
  */
 function eventForgotPassword(event){
-  const username = event.usernname;
+  //const username = event.usernname;
   
-  var responseType;
-  var status;
+  //var responseType;
+  //var status;
   
 }
 
@@ -100,11 +144,10 @@ exports.handler = async (event, context, callback) => {
   console.log(event.type);
   switch (event.type){
     case 'SignIn':
-      response = eventSignIn(event, connection);
+      callback(null, eventSignIn(event, connection));
       break;
       
     case 'Register':
-      console.log("Register case");
       callback(null, eventRegister(event, connection));
       break;
       
