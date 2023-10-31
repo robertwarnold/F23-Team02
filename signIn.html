@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="./js/account.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,8 @@
         <div id="inputField">
             <p>Username:</p>
             <input type="text" id="username">
-            <br><br>
+            <p id="errMessage" style="color:red;"></p>
+            <br>
             <p>Password:</p>
             <input type="password" id="password">
             <br>
@@ -28,50 +30,17 @@
         <br><br>
 
         <div id="buttons">
-            <button id="signIn">Login</button>
+            <button id="signIn" onclick=signIn()>Login</button>
         </div>
 
         <br><hr><br>
 
         <h3>Don't have an account? <a href="signUp.html">Sign Up Here</a></h3>
-<<<<<<< Updated upstream
 
-        <script src="Lambda Functions/Register.js"></script>
-=======
-        <script>
-            function login() {
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
-        
-                // Make an HTTP request to your AWS Lambda function
-                fetch('https://ucxwuexqd7c7zrcrxnoo6orufm0ksgri.lambda-url.us-east-1.amazonaws.com', {
-                    method: 'POST', // You can use POST or GET based on how your Lambda function is configured
-                    body: JSON.stringify({ email, password }), // You can pass data to the Lambda function here
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle the response from your Lambda function
-                    console.log(data);
-                    // Set cookies and display user data on your website
-                    document.cookie = `userId=${data.userId}; max-age=3600; path=/`;
-                    document.cookie = `userEmail=${data.email}; max-age=3600; path=/`;
-        
-                    // Display user data on your webpage
-                    document.getElementById("userFirstName").textContent = `Hello, ${data.firstName}`;
-                    document.getElementById("userEmail").textContent = `Email: ${data.email}`;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }
-        </script>
->>>>>>> Stashed changes
+        <!--<script src="Lambda Functions/Register.js"></script>-->
         
 
-        <!-- <p><a href="https://team02.auth.us-east-1.amazoncognito.com/login?client_id=6e4rn9da6dl0uir1s0o9judpnd&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fcpsc4911team02generalbucket.s3.amazonaws.com%2Findex.html">Log In</a></p> -->
+        <!--<p><a href="https://team02.auth.us-east-1.amazoncognito.com/login?client_id=6e4rn9da6dl0uir1s0o9judpnd&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fcpsc4911team02generalbucket.s3.amazonaws.com%2Findex.html">Log In</a></p>
         
     </div>
     
