@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="./js/account.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,8 @@
         <div id="inputField">
             <p>Username:</p>
             <input type="text" id="username">
-            <br><br>
+            <p id="errMessage" style="color:red;"></p>
+            <br>
             <p>Password:</p>
             <input type="password" id="password">
             <br>
@@ -28,14 +30,14 @@
         <br><br>
 
         <div id="buttons">
-            <button id="signIn">Login</button>
+            <button id="signIn" onclick=signIn()>Login</button>
         </div>
 
         <br><hr><br>
 
         <h3>Don't have an account? <a href="signUp.html">Sign Up Here</a></h3>
 
-        <script src="Lambda Functions/Register.js"></script>
+        <!--<script src="Lambda Functions/Register.js"></script>-->
         
 
         <!--<p><a href="https://team02.auth.us-east-1.amazoncognito.com/login?client_id=6e4rn9da6dl0uir1s0o9judpnd&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fcpsc4911team02generalbucket.s3.amazonaws.com%2Findex.html">Log In</a></p>
