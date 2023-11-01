@@ -1,0 +1,27 @@
+trigger:
+- '*'
+
+pr:
+- '*'
+
+pr:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo 'This is a placeholder for your build and test steps.'
+  displayName: 'Build and Test'
+
+- script: git config --global user.email "youremail@example.com"
+  displayName: 'Configure Git Email'
+  
+- script: git config --global user.name "Your Name"
+  displayName: 'Configure Git Username'
+
+- script: |
+    git remote add azure https://<Your Azure DevOps Repo URL>
+    git push azure HEAD:refs/heads/master --force
+  displayName: 'Push to Azure DevOps'
+
