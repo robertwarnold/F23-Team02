@@ -16,7 +16,6 @@ steps:
   env:
     REPOSITORY_NAME: 'https://github.com/robertwarnold/F23-Team02.git'
   workingDirectory: '$(Build.SourcesDirectory)'
-  inputs:
-    script: |
+- script: |
       git clone $(REPOSITORY_NAME) .
 
