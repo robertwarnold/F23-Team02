@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script src="../js/components.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,14 +26,28 @@
         </section> <br>
         <section>
             <form id="search">
-                <input type="search" id="catalog-search" name="catalog-search" placeholder="Search...">
-                <button>Search</button>
+                <!--<input type="search" id="catalog-search" name="catalog-search" placeholder="Search...">
+                <button>Search</button>!-->
             </form><button display="inline-block">Edit Catalog</button>
         </section>
         <br>
         <section>
             <h2>Products</h2>
-            <catalog-item></catalog-item>
+            <!--<catalog-item></catalog-item>!-->
+            <div class="container">
+                <div class="row" id="search_artist">
+                    <div class="wrapper">
+                        <form id="form">
+                            <input type="text" placeholder="Search" id="input_search">
+                        </form>
+                    </div>
+                </div>
+                <div id="not_match">
+                    Nothing found.
+                </div>
+                <div class="row" id="album_list_container">
+                </div>
+            </div>
         </section>
 
     </main>
@@ -42,5 +55,8 @@
         <p>&copy; 2023 Your Company</p>
         <p><a href="../aboutPage.html">About Us</p>
     </footer>
+
+    <script src="../js/components.js"></script>
+
 </body>
 </html>
