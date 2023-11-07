@@ -87,7 +87,6 @@ customElements.define("catalog-item", catalogItem);
 
             } else if (http.readyState === XMLHttpRequest.DONE && http.status !== 200) {
 
-
             }
         }
 
@@ -102,14 +101,14 @@ customElements.define("catalog-item", catalogItem);
             document.querySelector('#not_match').style.display = 'none';
 
             for (var i = 0; i < obj.results.length; i++) {
-                template += '<div class="col-sm-3 album_item">';
-                template += '<div class="item_thmb" style="background:url(' + obj.results[i].artworkUrl100 + ')"></div>';
+                template += '<div class="col-sm-3 album_item" id="album_item">';
+                template += '<div class="item_thmb" id="album_art" style="background:url(' + obj.results[i].artworkUrl100 + ')"></div>';
                 template += '<div id="song_info">';
-                template += '<div class="item_title">' + obj.results[i].collectionName + '</div>';
-                template += '<div class="artist_name">' + obj.results[i].artistName + '</div>';
-                template += '<div class="item_price"><span>Price: </span>' + obj.results[i].collectionPrice + 'USD </div>';
+                template += '<div class="item_title"> <p style="font-weight: bold; display: inline-block;">Album: </p>' + obj.results[i].collectionName + '</div>';
+                template += '<div class="artist_name"> <p style="font-weight: bold; display: inline-block;">Artist: </p>' + obj.results[i].artistName + '</p></div>';
+                template += '<div class="item_price"> <p style="font-weight: bold; display: inline-block;">Price: </p>' + obj.results[i].collectionPrice * 100 + ' points </div>';
                 template += '</div>';
-                template += '<a href="' + obj.results[i].collectionViewUrl + '" target="_blank">Buy now</a>';
+                template += '<a id="buy" href="' + obj.results[i].collectionViewUrl + '" target="_blank">Add To Cart</a>';
                 template += '</div>';
             }
 
