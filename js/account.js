@@ -3,25 +3,16 @@ function signIn(){
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     document.getElementById("errMessage").innerHTML = "";
-
-    fetch('https://u76zsrtgq8.execute-api.us-east-1.amazonaws.com/team02-testing',{
-        Method: 'POST',
-        Headers:{
-            "Access-Control-Allow-Origin" :"*",
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-        Body: JSON.stringify({
-            'type': 'SignIn',
-            'username': username,
-            'password' : password
-        }),
-    }).then(res =>{
-        console.log(res);
-        return res.json;
-    }).then(data=>{
+    var apiURL = 'https://u76zsrtgq8.execute-api.us-east-1.amazonaws.com/team02-testing/sign-in'+'?username=' + username + '&password=' + password;
+    fetch(apiURL)
+    .then(res => {
+        return res.json();
+    })
+    .then(data=>{
         console.log(data);
         if((data.status === "Success") && (data.eventType === "SignIn")){
-            window.location.replace('../driver/driver_dashboard.html');
+            
+            window.location.href ='./driver/driver_dashboard.html';
         }
         else if((data.status === "Failure") && (data.eventType === "SignIn")){
             document.getElementById("errMessage").innerHTML = data.reason;
@@ -30,6 +21,7 @@ function signIn(){
             document.getElementById("errMessage").innerHTML = "Something went horribly wrong!";
         }
     })
+    .catch(error=>console.log(error));
 }
 
 function validateToken(){
