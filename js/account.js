@@ -11,8 +11,17 @@ function signIn(){
     .then(data=>{
         console.log(data);
         if((data.status === "Success") && (data.eventType === "SignIn")){
-            
-            window.location.href ='./driver/driver_dashboard.html';
+            switch (data.userType){
+                case 'Admin':
+                    window.location.href ='./admin/admin_dashboard.html';
+                    break;
+                case 'Sponsor':
+                    window.location.href ='./sponsor/sponsor_dashboard.html';
+                    break;
+                case 'Driver':
+                    window.location.href ='./driver/driver_dashboard.html';
+                    break;
+            }
         }
         else if((data.status === "Failure") && (data.eventType === "SignIn")){
             document.getElementById("errMessage").innerHTML = data.reason;
