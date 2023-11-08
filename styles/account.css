@@ -170,3 +170,30 @@ input:focus {
     font-size: 18px;
     margin: 5px 0 0 0;
 }
+
+#album_item {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+  
+    height: 120px;
+    width: 60%;
+  
+    padding: 10px;
+    margin: 10px;
+}
+
+#album_art {
+    display: inline-block;
+}
+
+#song_info {
+    display: inline-block;
+    margin-left: 20px;
+    position: absolute;
+}
+
+#buy {
+    margin-right: 20px;
+    float: right;
+}
