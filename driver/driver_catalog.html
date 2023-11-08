@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Account</title>
+    <link rel="stylesheet" href="../styles/account.css">
+</head>
+<body>
+    <nav class="vertical-nav">
+        <ul>
+            <li><a href="driver_dashboard.html">Dashboard</a></li>
+            <li><a href="driver_catalog.html">Catalog</a></li>
+            <li><a href="driver_settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome, Driver</h1>
+    </header>
+    <main>
+        <!-- Sponsor content goes here -->
+        <section>
+            <h2>Catalog</h2>
+            <p>Welcome to the Sponsor catalog page.</p>
+        </section> <br>
+        <section>
+            <form id="search">
+                <!--<input type="search" id="catalog-search" name="catalog-search" placeholder="Search...">
+                <button>Search</button>!-->
+            </form><button display="inline-block">Edit Catalog</button>
+        </section>
+        <br>
+        <button id="cartBtn" data-modal-target="#modal">Cart</button>
+        <br><br>
+        <section>
+            <h2>Products</h2>
+            <!--<catalog-item></catalog-item>!-->
+            <div class="container">
+                <div class="row" id="search_artist">
+                    <div class="wrapper">
+                        <form id="form">
+                            <input type="text" placeholder="Search" id="input_search">
+                        </form>
+                    </div>
+                </div>
+                <div id="not_match">
+                    Nothing found.
+                </div>
+                <div class="row" id="album_list_container">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">Driver Cart</div>
+          <button id="closeBtn" data-close-button class="close-button">&times;</button>
+        </div>
+        <div id="cart" class="modal-body">
+          
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+        <p><a href="../aboutPage.html">About Us</p>
+    </footer>
+
+    <script src="../js/components.js"></script>
+
+</body>
+</html>
