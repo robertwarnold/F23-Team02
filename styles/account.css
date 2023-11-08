@@ -183,6 +183,18 @@ input:focus {
     margin: 10px;
 }
 
+#mini_album_item {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+  
+    height: 70px;
+    width: 95%;
+  
+    padding: 10px;
+    margin: 10px;
+}
+
 #album_art {
     display: inline-block;
 }
@@ -196,4 +208,80 @@ input:focus {
 #buy {
     margin-right: 20px;
     float: right;
+}
+
+/* start of modal styling */
+
+#cartBtn {
+    height: 30px;
+    width: 70px;
+
+    float: right;
+}
+
+#cartBtn:hover, #closeBtn:hover, #buy:hover {
+    background-color:rgb(163, 163, 163);
+}
+
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 700px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }
