@@ -38,7 +38,32 @@
         <h3>Don't have an account? <a href="signUp.html">Sign Up Here</a></h3>
 
     </div>
-    
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        function signInAndSetCookies() {
+            // Retrieve username from input field
+            var username = document.getElementById("username").value;
+
+            // You should also retrieve the password and validate it here
+
+            // Set cookies for first name, last name, and username
+            setCookie("username", username, 30);
+            setCookie("firstname", firstName, 30);
+            setCookie("lastname", lastName, 30);
+
+            // Redirect to the dashboard or another page
+            window.location.href = "dashboard.html"; // Update with your destination page
+        }
+    </script>
 </body>
 
 </html>
